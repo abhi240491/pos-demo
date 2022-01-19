@@ -3,7 +3,7 @@ import './Checkout.css';
 import Subtotal from '../CartTotal/Subtotal'
 import {useStateValue} from '../Reducer/StateProvider'
 import CheckoutProduct from "./CheckoutProduct";
-import { InsertEmoticon } from "@material-ui/icons";
+
 function Checkout() {
     const [{basket},dispatch] = useStateValue();
     console.log("Checkout: ",basket);
@@ -16,7 +16,7 @@ function Checkout() {
                             <h2 className = "checkout_title">
                                 Your Shopping Basket
                             </h2> 
-                            {basket.map((item) => <CheckoutProduct id = {item.id}/>
+                            {basket.map((item) => <CheckoutProduct key={item.id} id = {item.id}/>
                                     )}
                         </div>                        
                 </div>
