@@ -1,17 +1,24 @@
-import React from "react";
+import React,{useState} from "react";
 import "./Product.css";
 import {useStateValue} from '../Reducer/StateProvider'
 function Product( {id,title,image, price, rating} ){
     const [state, dispatch] = useStateValue();
-    const addToBasket = () =>{
-        dispatch({
+    const [quantity,setQuantity] = useState(1);
+    const [subTotal,setSubTotal] = useState(price);
+    const addToBasket = async () =>{
+        setQuantity(quantity+1);
+        setSubTotal(subTotal+price);
+        console.log(quantity);
+        await dispatch({
             type: 'ADD_TO_BASKET',
             item: {
                 id: id,
                 title: title,
                 image: image,
                 price: price,
-                rating: rating
+                rating: rating,
+                quantity: quantity,
+                subTotal: subTotal,
             }
         })    //dispatch the item into data layer....
     }

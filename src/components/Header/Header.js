@@ -4,9 +4,11 @@ import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import {Link} from "react-router-dom";
 import { useStateValue } from "../Reducer/StateProvider"
+import {getBasketTotalQuantity} from '../Reducer/reducer';
 function Header() {
     // eslint-disable-next-line no-unused-vars
     const [{basket}, dispatch] = useStateValue();
+    const quantity = getBasketTotalQuantity(basket);
         return(
             <div className="header">
                 <Link to = "/">
@@ -28,7 +30,7 @@ function Header() {
                     <div className = "header-optionBasket">
                         <ShoppingBasketIcon/>
                         <span className = "header-optionLineTwo header-basketCount"> 
-                        {basket? basket.length:0} 
+                        {quantity? quantity:0} 
                         </span>
                     </div>
                 </Link>

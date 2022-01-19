@@ -14,7 +14,7 @@ function Home(){
                         title = "Belt" 
                         price = {23.99}
                         image = "https://m.media-amazon.com/images/I/912gy9ku2VL._UX569_.jpg" 
-                        rating = {1}
+                        rating = {1}                
                         />
                     <Product
                         id = "abcdef9324"

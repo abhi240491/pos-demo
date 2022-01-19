@@ -6,6 +6,7 @@ import CheckoutProduct from "./CheckoutProduct";
 import { InsertEmoticon } from "@material-ui/icons";
 function Checkout() {
     const [{basket},dispatch] = useStateValue();
+    console.log("Checkout: ",basket);
         return(
             <div className="checkout">
                 <div className = "checkout_left">
@@ -15,8 +16,7 @@ function Checkout() {
                             <h2 className = "checkout_title">
                                 Your Shopping Basket
                             </h2> 
-                            {basket.map((item) => <CheckoutProduct id = {item.id} image = {item.image} title = {item.title} price = {item.price} rating = {item.rating}
-                                                    />
+                            {basket.map((item) => <CheckoutProduct id = {item.id}/>
                                     )}
                         </div>                        
                 </div>
